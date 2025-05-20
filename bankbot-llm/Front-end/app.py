@@ -5,6 +5,7 @@ from components import display_chat_history
 # Page configuration
 st.set_page_config(page_title="Banking LLM Assistant", layout="centered")
 
+
 # Title and description
 st.title("🏦 Banking Customer Support Assistant")
 st.markdown("Ask your banking questions or upload related documents for help.")
@@ -14,6 +15,7 @@ st.divider()
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
+
 # Chat input form
 with st.form("chat_form"):
     st.subheader("💬 Chat with Assistant")
@@ -21,11 +23,11 @@ with st.form("chat_form"):
     submit_chat = st.form_submit_button("Ask")
 
 
-
 # Display conversation
 if st.session_state.chat_history:
     st.markdown("### 🧠 Conversation")
     display_chat_history(st.session_state.chat_history)
+
 
     # Clear conversation button
     if st.button("🧹 Clear Conversation"):
@@ -38,9 +40,11 @@ if st.session_state.chat_history:
 
 st.divider()
 
+
 # Document uploader
 st.subheader("📄 Upload Document for Processing")
 uploaded_file = st.file_uploader("Choose a file", type=["pdf", "docx", "txt"])
+
 
 
 # Footer
