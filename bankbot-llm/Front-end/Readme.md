@@ -50,16 +50,11 @@ The frontend is built with **Streamlit**, providing a lightweight interface for 
 ---
 
 ## 📁 Folder Structure
+```bash
 llm-banking-frontend/
-
 │
-
 ├── app.py              # Main Streamlit entry point
-
 ├── components.py       # UI components: chat UI, upload UI, layout
-
-├── utils.py            # Helper functions: API calls, state management
-
+├── services.py         # Helper functions: API calls, state management
 ├── requirements.txt    # Python dependencies
-
 └── README.md           # You’re here!
