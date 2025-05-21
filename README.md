@@ -79,5 +79,28 @@ cd bankbot-llm
 * `pandas`, `numpy`, `openpyxl`
 * `torch` or `tensorflow` (based on model backend)
 
-## Future Work
-- Implement Rag
+## SETUP
+Pull the Local running Qdrant image
+```bash
+docker pull qdrant/qdrant
+```
+Start Qdrant container at Port `6333` and `6334`
+```bash
+docker run -p 6333:6333 -p 6334:6334 \
+    -v "$(pwd)/qdrant_storage:/qdrant/storage:z" \
+    qdrant/qdrant
+```
+Start the FastAPI server at port `8080` for AI inference
+```bash
+cd ai_core
+pip install -e .
+python run_server.py --host 0.0.0.0 --port 8080 --qdrant-url http://localhost:6333 --reload
+```
+Start the Streamlit Frontend at port `8502`
+
+```bash
+cd ../bankbot-llm/Front-end
+pip install -r requirements.txt
+streamlit run app.py
+```
+
