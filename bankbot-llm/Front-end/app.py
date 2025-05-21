@@ -44,7 +44,7 @@ st.divider()
 
 # Document uploader
 st.subheader("📄 Upload Document for Processing")
-uploaded_file = st.file_uploader("Choose a file", type=["pdf", "docx", "txt"])
+uploaded_file = st.file_uploader("Choose a file", type=["pdf", "docx", "txt", "json"])
 
 if uploaded_file and st.button("📤 Upload"):
     with st.spinner("Uploading and processing..."):
