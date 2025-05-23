@@ -9,18 +9,50 @@
 ```
 
 bankbot-llm/
-├── Dataset/
-│   └── prepare\_dataset.ipynb       # Prepares dataset from JSON & Excel files
-├── Fine-Tune/
-│   └── Fine-Tuning.ipynb           # Fine-tunes the model using the prepared dataset
-├── Inference/
-│   └── Inference.ipynb             # Loads the fine-tuned model and performs inference
-├── arch\_diagram.png                # Architecture diagram of the pipeline
-└── README.md
+├── ai_core/                        # Core backend logic (separate from bankbot-llm)
+│   ├── api/                        # FastAPI app setup
+│   │   ├── __init__.py
+│   │   ├── app.py
+│   │   └── routes.py
+│   ├── database/                   # Vector database interface
+│   │   ├── __init__.py
+│   │   └── qdrant_client.py
+│   ├── llm/                        # LLM interaction layer
+│   │   ├── __init__.py
+│   │   └── client.py
+│   ├── models/                     # Embedding models
+│   │   ├── __init__.py
+│   │   └── embedding.py
+│   ├── processors/                 # Data preprocessing utilities
+│   │   ├── __init__.py
+│   │   └── data_processor.py
+│   └── rag/                        # Retrieval-Augmented Generation chain logic
+│       ├── __init__.py
+│       ├── main.py                 # Builds and executes the RAG chain
+│       ├── run_server.py           # Starts the FastAPI server
+│       ├── setup.py                # Configuration/setup script
+│       └── .env.example            # Sample environment file
+├── bankbot-llm/                    # Project root folder
+│   ├── Dataset/
+│   │   └── Instruction Tuning Data/
+│   │       ├── BankProducts_FineTuning.json
+│   │       ├── Finetuning_dataset_preparation.ipynb
+│   │       └── finetune_data.json
+│   ├── Fine-Tune/
+│   │   └── Fine-Tuning.ipynb
+│   ├── Inference/
+│   │   └── Inference.ipynb
+│   ├── frontend/                   # Frontend interface
+│   │   ├── README.md
+│   │   ├── app.py
+│   │   ├── components.py
+│   │   ├── requirements.txt
+│   │   └── services.py
+│   ├── Images/                     # Architecture diagram(s)
+│   │   └── llm_arch_2.png
+│   └── README.md                   # Project overview documentation
 
 ````
-
----
 
 ## 📊 1. Dataset Preparation
 
